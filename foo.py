@@ -1,6 +1,14 @@
 
 def greedy(univ, items):
 
+    '''
+    Sort items list (contains (set(), weight, count )) by weight over length of items in the set
+    then while the cover does not equal the inputted universal set add values from tuple to
+    the cover, then remove tuple. 
+    MAYBE: Find the difference between the given sets and the current cover and update all the tuples
+    and remove any tups that no longer have values in their set. 
+    '''
+
     cover = set()
     weight = 0
     used = []
@@ -13,6 +21,7 @@ def greedy(univ, items):
         if len(tup[0]) > 0:
             for val in tup[0]:
                 cover.add(val)
+                
             weight += tup[1]
             used.append(tup[2])
             items.remove(tup)
@@ -25,9 +34,15 @@ def greedy(univ, items):
                 if len(items[i][0]) == 0:
                     items.remove(items[i])        
 
-    return cover, weight, used
+    return weight, used
 
 def read(file):
+
+    '''
+    Open the file, read in the number of elments and the number of sets. Create
+    the universal set from the given input and append rest of file to the items
+    list as (set(), weight, count)
+    '''
 
     items = []
     with open(file, 'r') as f:
@@ -42,12 +57,10 @@ def read(file):
 
     f.close()
 
-    cover, sol, sets = greedy(univ, items)
+    sol, sets = greedy(univ, items)
 
     print(f"Number of elems.:   {nelems}")
     print(f"Number of sets:     {nsets}")
     print(f"Solution:           {sol}")
     print(f"Sets Used:          {sets}")
-    print(f"Cover:              {cover}")
     print()
-read('long.txt')
