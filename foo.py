@@ -9,9 +9,6 @@ def greedy(univ, items):
     
     while cover != univ:
         tup = items[0]
-        if(cover == univ): 
-            print('break')
-            break
 
         if len(tup[0]) > 0:
             for val in tup[0]:
@@ -53,3 +50,4 @@ def read(file):
     print(f"Sets Used:          {sets}")
     print(f"Cover:              {cover}")
     print()
+read('long.txt')
