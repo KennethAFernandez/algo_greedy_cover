@@ -130,4 +130,10 @@ if __name__ == "__main__":
         out.write(str(weight)+'\n')
         out.write(str(sol))  
         out.close()
+    with open('results.txt', 'a') as out:
+        out.write(infile+'\n')
+        out.write(str(weight)+'\n')
+        out.write(str(sol)+'\n')  
+        out.write('\n')
+        out.close()
     
