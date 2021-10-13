@@ -64,3 +64,5 @@ def read(file):
     print(f"Solution:           {sol}")
     print(f"Sets Used:          {sets}")
     print()
+
+read('ab.txt')
